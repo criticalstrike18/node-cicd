@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit <%- todo %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #2a2a2a;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2a2a2a;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2a2a2a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Edit <%- todo %>:</h1>
+    <form action="/todo/edit/<%= todoIdx %>" method="post">
+        <p>
+            <label for="editTodo">Change to:</label>
+            <input type="hidden" name="_method" value="PUT">
+            <input type="text" name="editTodo" id="editTodo" autofocus placeholder="<%- todo %>" />
+            <br>
+            <input type="submit" value="Save" />
+        </p>
+    </form>
+</body>
+
+</html>
